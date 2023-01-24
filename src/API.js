@@ -20,6 +20,7 @@ const apiSettings = {
     const endpoint = searchTerm
       ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
       : `${POPULAR_BASE_URL}&page=${page}`;
+    // два раза await потому что сначала мы ждем fetch а потом ждем json()
     return await (await fetch(endpoint)).json();
   },
   fetchMovie: async movieId => {
